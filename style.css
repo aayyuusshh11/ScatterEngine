@@ -1,0 +1,41 @@
+/* HERO */
+
+.hero{
+    height:200vh;
+    position:relative;
+}
+
+.hero-content{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+#heroText{
+
+    font-size:170px;
+    line-height:.9;
+    text-align:center;
+
+}
+
+.hero-content.sticky{
+
+    position:fixed;
+
+    top:95px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    z-index:10;
+
+}

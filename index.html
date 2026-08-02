@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Engine</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scatter Engine</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            SCATTER ENGINE
+
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="#installation">INSTALLATION</a>
+
+            <a href="#">GITHUB</a>
+
+            <button id="customizeBtn">
+
+                CUSTOMIZE
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+
+
+        <!-- ================================================= -->
+        <!-- HERO TIMELINE                                     -->
+        <!-- ================================================= -->
+
+        <section class="hero-wrapper">
+
+
+
+            <!-- Sticky Hero -->
+
+            <div class="hero-sticky">
+
+                <div id="heroScatter">
+
+                    <h1 id="heroText" data-scatter>
+
+                        SCATTER
+                        <br>
+                        ENGINE
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Code starts INSIDE the timeline -->
+
+            <div class="code-entry">
+
+                <section class="code-section">
+
+                    <div class="code-window">
+
+                        <div class="code-header">
+
+                            <span class="file-name">
+
+                                scatter.js
+
+                            </span>
+
+                            <button class="copy-btn">
+
+                                Copy
+
+                            </button>
+
+                        </div>
+
+<pre><code>import { Scatter } from "./scatter-engine.js";
+
+Scatter.init({
+
+    gap: 4,
+
+    particleRadius: 2,
+
+    mouseRadius: 180,
+
+    repulsionStrength: 5,
+
+    springStrength: 0.04,
+
+    damping: 0.91,
+
+    trails: true,
+
+    shockwave: true
+
+});</code></pre>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- INSTALLATION                                      -->
+        <!-- ================================================= -->
+
+        <section id="installation">
+
+            <h2>
+
+                Installation
+
+            </h2>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- FOOTER                                            -->
+        <!-- ================================================= -->
+
+        <footer>
+
+            <p>
+
+                Scatter Engine
+
+            </p>
+
+        </footer>
+
+
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- CUSTOMIZE DRAWER                                  -->
+    <!-- ================================================= -->
+
+    <aside id="customizeDrawer">
+
+    </aside>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
