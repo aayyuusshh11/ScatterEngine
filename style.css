@@ -1,6 +1,5 @@
-/* =========================================
-   ROOT
-========================================= */
+/* ROOT */
+
 
 :root {
 
@@ -23,9 +22,7 @@
 
 }
 
-/* =========================================
-   RESET
-========================================= */
+
 
 * {
     margin: 0;
@@ -70,18 +67,13 @@ pre {
     font-family: 'JetBrains Mono', monospace;
 }
 
-/* =========================================
-   FOCUS
-========================================= */
+
 
 :focus-visible {
     outline: 1px solid var(--text-secondary);
     outline-offset: 2px;
 }
 
-/* =========================================
-   NAVBAR
-========================================= */
 
 header {
     position: fixed;
@@ -136,9 +128,6 @@ header {
     color: var(--text);
 }
 
-/* =========================================
-   NAV TOGGLE (MOBILE)
-========================================= */
 
 .nav-toggle {
     display: none;
@@ -170,9 +159,6 @@ header {
     transform: rotate(-45deg) translate(4px, -5px);
 }
 
-/* =========================================
-   HERO
-========================================= */
 
 .hero {
     min-height: 100vh;
@@ -194,9 +180,6 @@ header {
     container-type: inline-size;
 }
 
-/* =========================================
-   HERO TEXT — TWO LINES
-========================================= */
 
 .hero-text-container {
     display: flex;
@@ -217,9 +200,6 @@ header {
     max-width: 100%;
 }
 
-/* =========================================
-   TERMINAL
-========================================= */
 
 .terminal {
     position: absolute;
@@ -242,9 +222,6 @@ header {
     white-space: nowrap;
 }
 
-/* =========================================
-   COPY BUTTON
-========================================= */
 
 .copy-btn {
     display: flex;
@@ -276,9 +253,6 @@ header {
     color: #4ade80;
 }
 
-/* =========================================
-   CODE BLOCK (WITH COPY BUTTON)
-========================================= */
 
 .code-block {
     position: relative;
@@ -309,9 +283,7 @@ header {
     height: 28px;
 }
 
-/* =========================================
-   INSTALLATION
-========================================= */
+
 
 .installation {
     width: 100%;
@@ -349,9 +321,7 @@ header {
     text-transform: uppercase;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+
 
 footer {
     border-top: 1px solid var(--border);
@@ -382,9 +352,6 @@ footer span {
     color: var(--text-secondary);
 }
 
-/* =========================================
-   DRAWERS — SPLIT SCREEN (NO OVERLAY)
-========================================= */
 
 .drawer {
     position: fixed;
@@ -442,17 +409,12 @@ footer span {
     padding: 30px 24px;
 }
 
-/* =========================================
-   SPLIT SCREEN — HERO SHIFTS LEFT
-========================================= */
+
 
 body.drawer-active .hero-content {
     padding-right: calc(var(--drawer-width) + 60px);
 }
 
-/* =========================================
-   VIEW CODE DRAWER
-========================================= */
 
 .drawer-content section {
     margin-bottom: 36px;
@@ -471,9 +433,7 @@ body.drawer-active .hero-content {
     text-transform: uppercase;
 }
 
-/* =========================================
-   CUSTOMIZE DRAWER CONTROLS
-========================================= */
+
 
 .control-group {
     display: flex;
@@ -628,18 +588,15 @@ body.drawer-active .hero-content {
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.control-toggle input[type="checkbox"]:checked + .toggle-switch {
+.control-toggle input[type="checkbox"]:checked+.toggle-switch {
     background: #333;
 }
 
-.control-toggle input[type="checkbox"]:checked + .toggle-switch::after {
+.control-toggle input[type="checkbox"]:checked+.toggle-switch::after {
     transform: translateX(18px);
     background: var(--text);
 }
 
-/* =========================================
-   RESPONSIVE — TABLET (≤ 900px)
-========================================= */
 
 @media (max-width: 900px) {
 
@@ -675,9 +632,6 @@ body.drawer-active .hero-content {
 
 }
 
-/* =========================================
-   RESPONSIVE — MOBILE (≤ 640px)
-========================================= */
 
 @media (max-width: 640px) {
 
@@ -757,9 +711,6 @@ body.drawer-active .hero-content {
 
 }
 
-/* =========================================
-   REDUCED MOTION
-========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 

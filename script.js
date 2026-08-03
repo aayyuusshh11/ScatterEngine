@@ -1,13 +1,10 @@
-// ==========================================
-// SCATTER ENGINE WEBSITE
-// ==========================================
+
 
 import { Scatter } from "./scatter-engine.js";
 
 
-// ==========================================
 // DOM REFERENCES
-// ==========================================
+
 
 const heroLine1 =
     document.getElementById("heroLine1");
@@ -34,9 +31,9 @@ const navLinks =
     document.getElementById("navLinks");
 
 
-// ==========================================
+
 // WAIT FOR FONTS → INIT SCATTER
-// ==========================================
+
 
 document.fonts.ready.then(() => {
 
@@ -56,9 +53,9 @@ document.fonts.ready.then(() => {
 });
 
 
-// ==========================================
+
 // HELPER — ALL ENGINES
-// ==========================================
+
 
 function forEachEngine(fn) {
 
@@ -72,9 +69,9 @@ function forEachEngine(fn) {
 }
 
 
-// ==========================================
+
 // REPOSITION CANVASES
-// ==========================================
+
 
 function repositionCanvases() {
 
@@ -95,9 +92,9 @@ function repositionCanvases() {
 }
 
 
-// ==========================================
+
 // TEXT SPLITTING
-// ==========================================
+
 
 function splitText(text) {
 
@@ -128,45 +125,44 @@ function splitText(text) {
 }
 
 
-// ==========================================
 // HERO TYPOGRAPHY
-// ==========================================
+
 
 function updateHeroTypography() {
     const text1 = heroLine1.textContent.trim();
     const text2 = heroLine2.textContent.trim();
-    
+
     const container = document.getElementById("heroTextContainer");
     if (!container || !container.parentElement) return;
-    
+
     const parent = container.parentElement;
-    const containerWidth = parent.clientWidth; 
+    const containerWidth = parent.clientWidth;
     const containerHeight = parent.clientHeight;
-    
+
     const targetWidth = containerWidth * 0.8;
-    
+
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-    
+
     const baseSize = 100;
     const style = getComputedStyle(heroLine1);
     ctx.font = `${style.fontWeight} ${baseSize}px ${style.fontFamily}`;
-    
+
     const w1 = ctx.measureText(text1).width;
     const w2 = ctx.measureText(text2).width;
     const maxTextWidth = Math.max(w1, w2);
-    
+
     if (maxTextWidth === 0) return;
-    
+
     let idealSize = (targetWidth / maxTextWidth) * baseSize;
-    
+
     const minSize = 32;
     const maxByWidth = containerWidth * 0.22;
     const maxByHeight = containerHeight * 0.32;
     const maxSize = Math.min(maxByWidth, maxByHeight);
-    
+
     idealSize = Math.max(minSize, Math.min(idealSize, maxSize));
-    
+
     heroLine1.style.fontSize = `${idealSize}px`;
     heroLine2.style.fontSize = `${idealSize}px`;
 }
@@ -178,14 +174,12 @@ function setHeroText(text) {
 
     heroLine1.textContent = line1;
     heroLine2.textContent = line2;
-    
+
     updateHeroTypography();
 }
 
 
-// ==========================================
 // HOVER TEXT
-// ==========================================
 
 let defaultText = "SCATTER ENGINE";
 let hoverText = "";
@@ -244,9 +238,8 @@ function setupHoverText() {
 }
 
 
-// ==========================================
+
 // TRAILS
-// ==========================================
 
 let trailsEnabled = false;
 let originalAnimates = new Map();
@@ -336,9 +329,9 @@ function disableTrails() {
 }
 
 
-// ==========================================
+
 // ANIMATION PRESETS
-// ==========================================
+
 
 const PRESETS = {
 
@@ -368,9 +361,9 @@ const PRESETS = {
 };
 
 
-// ==========================================
+
 // DRAWERS — SPLIT SCREEN
-// ==========================================
+
 
 function isDrawerOpen() {
 
@@ -391,7 +384,7 @@ function animateCanvasReposition() {
             requestAnimationFrame(step);
         }
     }
-    
+
     requestAnimationFrame(step);
 }
 
@@ -492,9 +485,9 @@ document.addEventListener(
 );
 
 
-// ==========================================
+
 // MOBILE NAV
-// ==========================================
+
 
 navToggle.addEventListener(
     "click",
@@ -536,9 +529,9 @@ navLinks.querySelectorAll("a").forEach(
 );
 
 
-// ==========================================
+
 // COPY BUTTONS
-// ==========================================
+
 
 document.querySelectorAll(
     ".copy-btn"
@@ -579,9 +572,9 @@ document.querySelectorAll(
 );
 
 
-// ==========================================
+
 // CUSTOMIZE — TEXT CONTROLS
-// ==========================================
+
 
 const ctrlDefaultText =
     document.getElementById("ctrlDefaultText");
@@ -633,9 +626,9 @@ ctrlHoverText.addEventListener(
 );
 
 
-// ==========================================
+
 // CUSTOMIZE — RANGE CONTROLS
-// ==========================================
+
 
 const rangeControls = [
 
@@ -723,9 +716,9 @@ rangeControls.forEach(
 );
 
 
-// ==========================================
+
 // CUSTOMIZE — ANIMATION STYLE
-// ==========================================
+
 
 const ctrlAnimationStyle =
     document.getElementById("ctrlAnimationStyle");
@@ -780,9 +773,9 @@ ctrlAnimationStyle.addEventListener(
 );
 
 
-// ==========================================
+
 // CUSTOMIZE — TRAILS TOGGLE
-// ==========================================
+
 
 const ctrlTrails =
     document.getElementById("ctrlTrails");
@@ -802,9 +795,9 @@ ctrlTrails.addEventListener(
 );
 
 
-// ==========================================
+
 // CUSTOMIZE — SHOCKWAVE TOGGLE
-// ==========================================
+
 
 const ctrlShockwave =
     document.getElementById("ctrlShockwave");
@@ -822,9 +815,9 @@ ctrlShockwave.addEventListener(
 );
 
 
-// ==========================================
+
 // RESIZE — REPOSITION CANVASES
-// ==========================================
+
 
 let resizeTimeout = null;
 

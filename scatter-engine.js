@@ -1,6 +1,6 @@
-// ==========================================
+
 // SCATTER ENGINE
-// ==========================================
+
 
 export class ScatterEngine {
 
@@ -22,9 +22,9 @@ export class ScatterEngine {
         }
 
 
-        // ==========================================
+
         // SETTINGS
-        // ==========================================
+
 
         this.settings = {
 
@@ -92,9 +92,9 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // SAMPLE CURRENT CANVAS PIXELS
-    // ==========================================
+
 
     samplePixels() {
 
@@ -172,9 +172,9 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // INITIAL PIXELS → PARTICLES
-    // ==========================================
+
 
     createParticles() {
 
@@ -227,9 +227,9 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // MORPH INTO NEW PIXEL TARGETS
-    // ==========================================
+
 
     morph(targets) {
 
@@ -257,9 +257,9 @@ export class ScatterEngine {
             );
 
 
-        // ==========================================
+
         // EXISTING PARTICLES → NEW TARGETS
-        // ==========================================
+
 
         for (
             let i = 0;
@@ -303,9 +303,9 @@ export class ScatterEngine {
 
 
 
-        // ==========================================
+
         // NEED MORE PARTICLES
-        // ==========================================
+
 
         if (
             targetCount >
@@ -379,9 +379,9 @@ export class ScatterEngine {
 
 
 
-        // ==========================================
+
         // NEED FEWER PARTICLES
-        // ==========================================
+
 
         else if (
             targetCount <
@@ -403,9 +403,9 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // POINTER POSITION
-    // ==========================================
+
 
     getPointerPosition(event) {
 
@@ -456,9 +456,9 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // POINTER HANDLERS
-    // ==========================================
+
 
     handlePointerMove(event) {
 
@@ -513,9 +513,9 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // EVENTS
-    // ==========================================
+
 
     setupEvents() {
 
@@ -539,10 +539,10 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
-    // SHOCKWAVE
-    // ==========================================
 
+    // SHOCKWAVE
+
+    0
     updateShockwave() {
 
         if (
@@ -570,16 +570,15 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // PARTICLE PHYSICS
-    // ==========================================
+
 
     updateParticle(particle) {
 
 
-        // ------------------------------------------
+
         // MOUSE REPULSION
-        // ------------------------------------------
 
         const dx =
             particle.x -
@@ -640,10 +639,7 @@ export class ScatterEngine {
         }
 
 
-
-        // ------------------------------------------
         // SHOCKWAVE
-        // ------------------------------------------
 
         if (
             this.shockwave.active
@@ -717,10 +713,7 @@ export class ScatterEngine {
         }
 
 
-
-        // ------------------------------------------
         // SPRING TO HOME POSITION
-        // ------------------------------------------
 
         const springX =
             particle.homeX -
@@ -745,9 +738,8 @@ export class ScatterEngine {
 
 
 
-        // ------------------------------------------
         // DAMPING
-        // ------------------------------------------
+
 
         particle.vx *=
             this.settings.damping;
@@ -758,9 +750,8 @@ export class ScatterEngine {
 
 
 
-        // ------------------------------------------
         // MORPH FADE
-        // ------------------------------------------
+
 
         particle.alpha +=
             (
@@ -772,9 +763,8 @@ export class ScatterEngine {
 
 
 
-        // ------------------------------------------
         // POSITION
-        // ------------------------------------------
+
 
         particle.x +=
             particle.vx;
@@ -786,9 +776,7 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
     // DRAW PARTICLE
-    // ==========================================
 
     drawParticle(particle) {
 
@@ -834,9 +822,9 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
+
     // ANIMATION
-    // ==========================================
+
 
     animate() {
 
@@ -908,9 +896,8 @@ export class ScatterEngine {
 
 
 
-    // ==========================================
     // DESTROY ONE ENGINE
-    // ==========================================
+
 
     destroy() {
 
@@ -971,9 +958,7 @@ export class ScatterEngine {
 
 
 
-// ==========================================
 // HIGH LEVEL SCATTER API
-// ==========================================
 
 export class Scatter {
 
@@ -981,9 +966,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // INIT
-    // ==========================================
 
     static init(
         globalOptions = {}
@@ -1041,9 +1024,8 @@ export class Scatter {
 
 
 
-    // ==========================================
     // ELEMENT OPTIONS
-    // ==========================================
+
 
     static getElementOptions(
         element,
@@ -1148,9 +1130,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // POSITION CANVAS OVER SOURCE
-    // ==========================================
 
     static positionCanvas(
         element,
@@ -1198,9 +1178,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // RENDER TEXT ONTO CANVAS
-    // ==========================================
 
     static renderText(
         element,
@@ -1329,9 +1307,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // CREATE TEXT SCATTER
-    // ==========================================
 
     static createFromText(
         element,
@@ -1380,9 +1356,7 @@ export class Scatter {
 
 
 
-        // ==========================================
         // CREATE CANVAS
-        // ==========================================
 
         const canvas =
             document.createElement(
@@ -1411,9 +1385,7 @@ export class Scatter {
 
 
 
-        // ==========================================
         // OVERLAY CANVAS
-        // ==========================================
 
         document.body.appendChild(
             canvas
@@ -1427,9 +1399,7 @@ export class Scatter {
 
 
 
-        // ==========================================
         // HIDE ORIGINAL TEXT
-        // ==========================================
 
         element.style.color =
             "transparent";
@@ -1441,9 +1411,7 @@ export class Scatter {
 
 
 
-        // ==========================================
         // START ENGINE
-        // ==========================================
 
         const engine =
             new ScatterEngine(
@@ -1453,9 +1421,7 @@ export class Scatter {
 
 
 
-        // ==========================================
         // INSTANCE
-        // ==========================================
 
         const instance = {
 
@@ -1474,9 +1440,7 @@ export class Scatter {
 
 
 
-        // ==========================================
         // WATCH TEXT CHANGES
-        // ==========================================
 
         const observer =
             new MutationObserver(
@@ -1511,9 +1475,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // TEXT CHANGED → MORPH
-    // ==========================================
 
     static updateTextInstance(
         instance
@@ -1536,14 +1498,14 @@ export class Scatter {
         // Check if element size changed (due to font-size updates)
         const rect =
             element.getBoundingClientRect();
-            
+
         if (
             rect.width > 0 &&
             rect.height > 0
         ) {
             const newWidth = Math.ceil(rect.width);
             const newHeight = Math.ceil(rect.height);
-            
+
             if (canvas.width !== newWidth || canvas.height !== newHeight) {
                 canvas.width = newWidth;
                 canvas.height = newHeight;
@@ -1583,9 +1545,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // IMAGE
-    // ==========================================
 
     static createFromImage(
         element,
@@ -1627,9 +1587,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // IMAGE → CANVAS
-    // ==========================================
 
     static drawImageToCanvas(
         element,
@@ -1746,9 +1704,7 @@ export class Scatter {
 
 
 
-    // ==========================================
     // DESTROY ALL
-    // ==========================================
 
     static destroy() {
 
@@ -1778,10 +1734,6 @@ export class Scatter {
 
 
 
-            // ======================================
-            // RESTORE ORIGINAL
-            // ======================================
-
             if (
                 instance.type ===
                 "image"
@@ -1807,7 +1759,6 @@ export class Scatter {
                 .dataset
                 .scatterInitialized;
         }
-
 
         Scatter.instances.length = 0;
     }
