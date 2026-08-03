@@ -1,10 +1,4 @@
 /* =========================================
-   GOOGLE FONT
-========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
-/* =========================================
    ROOT
 ========================================= */
 
@@ -15,13 +9,15 @@
     --border: #222222;
 
     --text: #ffffff;
-    --text-secondary: #9a9a9a;
+    --text-secondary: #888888;
 
     --radius: 4px;
 
     --navbar-height: 70px;
 
     --content-width: 1200px;
+
+    --drawer-width: 520px;
 
     --transition: 0.25s ease;
 
@@ -31,526 +27,749 @@
    RESET
 ========================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-
-    scroll-behavior:smooth;
-
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-
-    background:var(--bg);
-
-    color:var(--text);
-
-    font-family:'Inter',sans-serif;
-
-    overflow-x:hidden;
-
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-a{
-
-    color:inherit;
-
-    text-decoration:none;
-
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-button{
-
-    background:none;
-
-    border:none;
-
-    color:inherit;
-
-    cursor:pointer;
-
-    font:inherit;
-
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
 }
 
 input,
-select{
+select {
+    font: inherit;
+}
 
-    font:inherit;
+code,
+pre {
+    font-family: 'JetBrains Mono', monospace;
+}
 
+/* =========================================
+   FOCUS
+========================================= */
+
+:focus-visible {
+    outline: 1px solid var(--text-secondary);
+    outline-offset: 2px;
 }
 
 /* =========================================
    NAVBAR
 ========================================= */
 
-header{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    background:var(--bg);
-
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--bg);
 }
 
-.navbar{
-
-    height:var(--navbar-height);
-
-    max-width:var(--content-width);
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 30px;
-
+.navbar {
+    height: var(--navbar-height);
+    max-width: var(--content-width);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
 }
 
-.logo{
-
-    font-size:1.15rem;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
+.logo {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
 }
 
-.nav-links{
+.logo:hover {
+    opacity: 0.7;
+}
 
-    display:flex;
-
-    align-items:center;
-
-    gap:34px;
-
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
 
 .nav-links a,
-.nav-links button{
-
-    color:var(--text-secondary);
-
-    transition:var(--transition);
-
+.nav-links button {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: var(--transition);
 }
 
 .nav-links a:hover,
-.nav-links button:hover{
+.nav-links button:hover {
+    color: var(--text);
+}
 
-    color:var(--text);
+/* Active nav button when its drawer is open */
+.nav-links button.active {
+    color: var(--text);
+}
 
+/* =========================================
+   NAV TOGGLE (MOBILE)
+========================================= */
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: var(--text);
+    transition: var(--transition);
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -5px);
 }
 
 /* =========================================
    HERO
 ========================================= */
 
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding-top:var(--navbar-height);
-
-}
-.hero-content{
-
-    width:100%;
-
-    height:calc(100vh - var(--navbar-height));
-
-    padding:0 60px;
-
-    position:relative;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--navbar-height);
 }
 
-#heroText{
+.hero-content {
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    padding: 0 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: padding-right 0.35s ease;
+    container-type: inline-size;
+}
 
-    font-size:clamp(4rem,10vw,9rem);
+/* =========================================
+   HERO TEXT — TWO LINES
+========================================= */
 
-    font-weight:700;
+.hero-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 100%;
+}
 
-    text-align:center;
-
-    line-height:.9;
-
-    letter-spacing:-4px;
-
-    margin-bottom:60px;
-
+.hero-line {
+    font-size: clamp(2rem, 14cqi, 9rem);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: -4px;
+    user-select: none;
+    white-space: nowrap;
+    max-width: 100%;
 }
 
 /* =========================================
    TERMINAL
 ========================================= */
 
-.terminal{
-
-    position:absolute;
-
-    left:30px;
-    bottom:40px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    width:320px;
-
-    background:var(--surface);
-
-    border:1px solid var(--border);
-
-    border-radius:4px;
-
-    padding:10px 14px;
-
+.terminal {
+    position: absolute;
+    left: 30px;
+    bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
 }
 
-.terminal-command{
-
-    font-size:0.82rem;
-
-    font-family:"JetBrains Mono", monospace;
-
+.terminal-command {
+    font-size: 0.82rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    white-space: nowrap;
 }
 
-.copy-btn{
+/* =========================================
+   COPY BUTTON
+========================================= */
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    width:34px;
-
-    height:34px;
-
-    border:1px solid transparent;
-
-    border-radius:4px;
-
-    transition:var(--transition);
-
-    font-size:18px;
-
+.copy-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    color: var(--text-secondary);
+    flex-shrink: 0;
 }
 
-.copy-btn:hover{
+.copy-btn:hover {
+    color: var(--text);
+}
 
-    border-color:var(--border);
+.copy-btn .icon-check {
+    display: none;
+}
 
+.copy-btn.copied .icon-copy {
+    display: none;
+}
+
+.copy-btn.copied .icon-check {
+    display: block;
+    color: #4ade80;
+}
+
+/* =========================================
+   CODE BLOCK (WITH COPY BUTTON)
+========================================= */
+
+.code-block {
+    position: relative;
+}
+
+.code-block pre {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    padding-right: 44px;
+    overflow-x: auto;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.code-block code {
+    font-size: inherit;
+    color: inherit;
+}
+
+.code-block .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
 }
 
 /* =========================================
    INSTALLATION
 ========================================= */
 
-.installation{
-
-    width:100%;
-
-    padding:120px 60px;
-
+.installation {
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 120px 60px;
 }
 
-.installation h2{
-
-    font-size:2.8rem;
-
-    margin-bottom:70px;
-
+.installation h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
 }
 
-/* New */
-
-.installation-container{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
+.installation-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.install-step{
-
-    border:1px solid var(--border);
-
-    border-radius:4px;
-
-    padding:24px;
-
-    background:var(--surface);
-
+.install-step {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    background: var(--surface);
 }
 
-.install-step h3{
-
-    margin-bottom:18px;
-
-    color:var(--text-secondary);
-
-    font-size:1rem;
-
-    font-weight:500;
-
-}
-
-.install-step pre{
-
-    background:#050505;
-
-    border:1px solid var(--border);
-
-    border-radius:4px;
-
-    padding:16px;
-
-    overflow:auto;
-
-}
-
-.install-step code{
-
-    font-family:"JetBrains Mono", monospace;
-
+.install-step h3 {
+    margin-bottom: 18px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* =========================================
    FOOTER
 ========================================= */
 
-footer{
-
-    border-top:1px solid var(--border);
-
-    margin-top:150px;
-
-    padding:35px 30px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:40px;
-
+footer {
+    border-top: 1px solid var(--border);
+    padding: 35px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
 }
 
-footer a{
-
-    color:var(--text-secondary);
-
-    transition:var(--transition);
-
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
-footer a:hover{
-
-    color:var(--text);
-
+footer a {
+    color: var(--text-secondary);
+    transition: var(--transition);
 }
 
-footer span{
+footer a:hover {
+    color: var(--text);
+}
 
-    color:var(--text-secondary);
+footer span {
+    color: var(--text-secondary);
+}
+
+/* =========================================
+   DRAWERS — SPLIT SCREEN (NO OVERLAY)
+========================================= */
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: var(--drawer-width);
+    height: 100vh;
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    z-index: 2000;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+}
+
+.drawer.open {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 1;
+}
+
+.drawer-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.close-drawer {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.close-drawer:hover {
+    color: var(--text);
+}
+
+.drawer-content {
+    padding: 30px 24px;
+}
+
+/* =========================================
+   SPLIT SCREEN — HERO SHIFTS LEFT
+========================================= */
+
+body.drawer-active .hero-content {
+    padding-right: calc(var(--drawer-width) + 60px);
+}
+
+/* =========================================
+   VIEW CODE DRAWER
+========================================= */
+
+.drawer-content section {
+    margin-bottom: 36px;
+}
+
+.drawer-content section:last-child {
+    margin-bottom: 0;
+}
+
+.drawer-content section h3 {
+    margin-bottom: 12px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   CUSTOMIZE DRAWER CONTROLS
+========================================= */
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.control-label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text);
+}
+
+.control-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+}
+
+/* --- Text Inputs --- */
+
+.control-group input[type="text"] {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    padding: 10px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    transition: border-color var(--transition);
+}
+
+.control-group input[type="text"]:focus {
+    outline: none;
+    border-color: var(--text-secondary);
+}
+
+.control-group input[type="text"]::placeholder {
+    color: #444;
+}
+
+/* --- Range Inputs --- */
+
+.control-group input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text);
+    cursor: pointer;
+    border: none;
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text);
+    cursor: pointer;
+    border: none;
+}
+
+/* --- Select --- */
+
+.control-group select {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: border-color var(--transition);
+}
+
+.control-group select:focus {
+    outline: none;
+    border-color: var(--text-secondary);
+}
+
+.control-group select option {
+    background: var(--surface);
+    color: var(--text);
+}
+
+/* --- Toggle Switch --- */
+
+.control-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.control-toggle .control-label {
+    flex: 1;
+}
+
+.control-toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    background: var(--border);
+    border-radius: 10px;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    background: var(--text-secondary);
+    border-radius: 50%;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.control-toggle input[type="checkbox"]:checked + .toggle-switch {
+    background: #333;
+}
+
+.control-toggle input[type="checkbox"]:checked + .toggle-switch::after {
+    transform: translateX(18px);
+    background: var(--text);
+}
+
+/* =========================================
+   RESPONSIVE — TABLET (≤ 900px)
+========================================= */
+
+@media (max-width: 900px) {
+
+    :root {
+        --drawer-width: 400px;
+    }
+
+    .installation-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .installation-container .install-step:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .hero-content {
+        padding: 0 30px;
+    }
+
+    .installation {
+        padding: 80px 30px;
+    }
+
+    .hero-line {
+        font-size: clamp(3rem, 10vw, 6rem);
+        letter-spacing: -3px;
+    }
+
+    /* Split screen still works but with smaller drawer */
+    body.drawer-active .hero-content {
+        padding-right: calc(var(--drawer-width) + 30px);
+    }
 
 }
 
 /* =========================================
-   DRAWERS
+   RESPONSIVE — MOBILE (≤ 640px)
 ========================================= */
 
-.drawer{
+@media (max-width: 640px) {
 
-    position:fixed;
+    :root {
+        --drawer-width: 100%;
+    }
 
-    top:0;
+    .nav-toggle {
+        display: flex;
+    }
 
-    right:-460px;
+    .nav-links {
+        position: fixed;
+        top: var(--navbar-height);
+        left: 0;
+        width: 100%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 30px;
+        gap: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 999;
+    }
 
-    width:520px;
+    .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-    height:100vh;
+    .hero-line {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        letter-spacing: -2px;
+    }
 
-    background:var(--bg);
+    .hero-content {
+        padding: 0 20px;
+    }
 
-    border-left:1px solid var(--border);
+    .terminal {
+        left: 20px;
+        bottom: 30px;
+    }
 
-    transition:.35s ease;
+    .installation {
+        padding: 60px 20px;
+    }
 
-    z-index:2000;
+    .installation h2 {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
 
-    overflow-y:auto;
+    .installation-container {
+        grid-template-columns: 1fr;
+    }
 
-}
+    .installation-container .install-step:last-child {
+        grid-column: auto;
+    }
 
-.drawer.open{
+    footer {
+        gap: 24px;
+        padding: 30px 20px;
+        font-size: 0.8rem;
+    }
 
-    right:0;
-
-}
-
-.drawer-header{
-
-    height:70px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 24px;
-
-    border-bottom:1px solid var(--border);
-
-}
-
-.drawer-content{
-
-    padding:40px;
-}
-
-.drawer-content section{
-
-    margin-bottom:45px;
-
-}
-
-.drawer-content h3{
-
-    margin-bottom:16px;
-
-}
-
-.drawer-content pre{
-
-    background:var(--surface);
-
-    border:1px solid var(--border);
-
-    border-radius:4px;
-
-    padding:16px;
-
-    overflow:auto;
-
-    margin-bottom:12px;
-
-}
-
-.drawer-content label{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-
-    margin-bottom:24px;
-
-}
-
-.drawer-content input[type=text],
-.drawer-content input[type=range],
-.drawer-content select{
-
-    width:100%;
+    /* Mobile: drawer is full width, no split */
+    body.drawer-active .hero-content {
+        padding-right: 20px;
+    }
 
 }
 
 /* =========================================
-   RESPONSIVE
+   REDUCED MOTION
 ========================================= */
 
-@media(max-width:900px){
+@media (prefers-reduced-motion: reduce) {
 
-.navbar{
-
-    width:100%;
-
-    padding:0 60px;
-
-    height:var(--navbar-height);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-    .nav-links{
-
-        gap:20px;
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-    }
-
-    #heroText{
-
-        font-size:4rem;
-
-        letter-spacing:-2px;
-
-    }
-
-    .terminal{
-
-        flex-direction:column;
-
-        gap:20px;
-
-        align-items:flex-start;
-
-    }
-
-    .drawer{
-
-        width:100%;
-
-        right:-100%;
-
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 
 }

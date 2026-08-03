@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Scatter Engine</title>
-    <meta name="description" content="Scatter Engine - Interactive particle text for the web.">
+    <title>Scatter Engine — Interactive Particle Text for the Web</title>
+    <meta name="description"
+        content="Scatter Engine turns text and images into interactive particles. Mouse repel, text morphing, shockwave clicks. Install and start in seconds.">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,27 +25,34 @@
     <!-- ===================== NAVBAR ===================== -->
 
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
 
-            <a href="#" class="logo">
+            <a href="#" class="logo" aria-label="Scatter Engine home">
                 SCATTER ENGINE
             </a>
 
-            <div class="nav-links">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
 
                 <a href="#installation">
                     Installation
                 </a>
 
-                <button id="customizeBtn">
+                <button id="customizeBtn" aria-label="Open customize panel">
                     Customize
                 </button>
 
-                <button id="viewCodeBtn">
+                <button id="viewCodeBtn" aria-label="Open view code panel">
                     View Code
                 </button>
 
-                <a href="#" target="_blank">
+                <a href="https://github.com/aayyuusshh11/ScatterEngine" target="_blank" rel="noopener noreferrer"
+                    aria-label="View on GitHub">
                     GitHub
                 </a>
 
@@ -45,44 +61,60 @@
         </nav>
     </header>
 
-<!-- ===================== HERO ===================== -->
+    <!-- ===================== HERO ===================== -->
 
-<main>
+    <main>
 
-    <section class="hero">
+        <section class="hero">
 
-        <div class="hero-content">
+            <div class="hero-content">
 
-            <!-- Scatter Engine Container -->
+                <!-- Scatter Engine Container — Two lines -->
 
-            <div class="hero-text-container">
+                <div class="hero-text-container" id="heroTextContainer">
 
-                <h1 id="heroText">
-                    SCATTER ENGINE
-                </h1>
+                    <h1 class="hero-line" id="heroLine1" data-scatter>
+                        SCATTER
+                    </h1>
+
+                    <h1 class="hero-line" id="heroLine2" data-scatter>
+                        ENGINE
+                    </h1>
+
+                </div>
+
+                <!-- Install Command -->
+
+                <div class="terminal">
+
+                    <span class="terminal-command">
+                        $ npm install scatter-engine
+                    </span>
+
+                    <button class="copy-btn" data-copy="npm install scatter-engine" aria-label="Copy install command">
+                        <svg class="icon-copy" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="10" height="14" rx="1.5" fill="currentColor" />
+                            <path
+                                d="M8.06427 5.06427C8.20216 5.02247 8.34846 5 8.5 5H15.5C16.3284 5 17 5.67157 17 6.5V17.5C17 17.6515 16.9775 17.7978 16.9357 17.9357C17.5517 17.7491 18 17.1769 18 16.5V5.5C18 4.67157 17.3284 4 16.5 4H9.5C8.82312 4 8.25095 4.44835 8.06427 5.06427Z"
+                                fill="currentColor" />
+                        </svg>
+                        <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                </div>
 
             </div>
 
-            <!-- Install Command -->
+        </section>
 
-            <div class="terminal">
+        <!-- ===================== INSTALLATION ===================== -->
 
-                <span class="terminal-command">
-                    $ npm install scatter-engine
-                </span>
-
-                <button class="copy-btn" aria-label="Copy install command">
-                    ⧉
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ===================== INSTALLATION ===================== -->
-     <section id="installation" class="installation">
+        <section id="installation" class="installation">
 
             <h2>
                 Installation
@@ -93,32 +125,90 @@
                 <div class="install-step">
 
                     <h3>
-                        01. Install
+                        INSTALL
                     </h3>
 
-                    <pre><code>npm install scatter-engine</code></pre>
+                    <div class="code-block">
+                        <pre><code>npm install scatter-engine</code></pre>
+                        <button class="copy-btn" data-copy="npm install scatter-engine"
+                            aria-label="Copy install command">
+                            <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="6" width="10" height="14" rx="1.5" fill="currentColor" />
+                                <path
+                                    d="M8.06427 5.06427C8.20216 5.02247 8.34846 5 8.5 5H15.5C16.3284 5 17 5.67157 17 6.5V17.5C17 17.6515 16.9775 17.7978 16.9357 17.9357C17.5517 17.7491 18 17.1769 18 16.5V5.5C18 4.67157 17.3284 4 16.5 4H9.5C8.82312 4 8.25095 4.44835 8.06427 5.06427Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
 
                 </div>
 
                 <div class="install-step">
 
                     <h3>
-                        02. Import
+                        IMPORT
                     </h3>
 
-                    <pre><code>import Scatter from "scatter-engine";</code></pre>
+                    <div class="code-block">
+                        <pre><code>import { Scatter } from "scatter-engine";</code></pre>
+                        <button class="copy-btn" data-copy='import { Scatter } from "scatter-engine";'
+                            aria-label="Copy import statement">
+                            <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="6" width="10" height="14" rx="1.5" fill="currentColor" />
+                                <path
+                                    d="M8.06427 5.06427C8.20216 5.02247 8.34846 5 8.5 5H15.5C16.3284 5 17 5.67157 17 6.5V17.5C17 17.6515 16.9775 17.7978 16.9357 17.9357C17.5517 17.7491 18 17.1769 18 16.5V5.5C18 4.67157 17.3284 4 16.5 4H9.5C8.82312 4 8.25095 4.44835 8.06427 5.06427Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
 
                 </div>
 
                 <div class="install-step">
 
                     <h3>
-                        03. Initialize
+                        INITIALIZE
                     </h3>
 
-    <pre><code>Scatter.init({
-        target: "#heroText"
-    });</code></pre>
+                    <div class="code-block">
+                        <pre><code>&lt;h1 data-scatter&gt;SCATTER ENGINE&lt;/h1&gt;
+
+&lt;script type="module"&gt;
+  import { Scatter } from "scatter-engine";
+  Scatter.init();
+&lt;/script&gt;</code></pre>
+                        <button class="copy-btn" data-copy='<h1 data-scatter>SCATTER ENGINE</h1>
+
+<script type="module">
+  import { Scatter } from "scatter-engine";
+  Scatter.init();
+</script>' aria-label="Copy initialization code">
+                            <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="6" width="10" height="14" rx="1.5" fill="currentColor" />
+                                <path
+                                    d="M8.06427 5.06427C8.20216 5.02247 8.34846 5 8.5 5H15.5C16.3284 5 17 5.67157 17 6.5V17.5C17 17.6515 16.9775 17.7978 16.9357 17.9357C17.5517 17.7491 18 17.1769 18 16.5V5.5C18 4.67157 17.3284 4 16.5 4H9.5C8.82312 4 8.25095 4.44835 8.06427 5.06427Z"
+                                    fill="currentColor" />
+                            </svg>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -132,31 +222,33 @@
 
     <footer>
 
-        <a href="#">
-            Documentation
-        </a>
+        <div class="footer-links">
+            <a href="#">
+                Documentation
+            </a>
 
-        <a href="#">
-            Examples
-        </a>
+            <a href="#">
+                Examples
+            </a>
 
-        <a href="#">
-            GitHub
-        </a>
+            <a href="https://github.com/aayyuusshh11/ScatterEngine" target="_blank" rel="noopener noreferrer">
+                GitHub
+            </a>
 
-        <a href="#">
-            License
-        </a>
+            <a href="#">
+                License
+            </a>
+        </div>
 
         <span>
-            Made by Aayush
+            Made by Aayush • v1.0.0
         </span>
 
     </footer>
 
     <!-- ===================== VIEW CODE DRAWER ===================== -->
 
-    <aside id="viewCodeDrawer" class="drawer">
+    <aside id="viewCodeDrawer" class="drawer" role="dialog" aria-label="View Code">
 
         <div class="drawer-header">
 
@@ -164,7 +256,7 @@
                 View Code
             </h2>
 
-            <button class="closeDrawer">
+            <button class="close-drawer" aria-label="Close drawer">
                 ✕
             </button>
 
@@ -180,49 +272,108 @@
                     Installation
                 </h3>
 
-                <pre><code>npm install scatter-engine</code></pre>
-
-                <button class="copy-btn">
-                    ⧉
-                </button>
+                <div class="code-block">
+                    <pre><code>npm install scatter-engine</code></pre>
+                    <button class="copy-btn" data-copy="npm install scatter-engine" aria-label="Copy install command">
+                        <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="10" height="14" rx="1.5" fill="currentColor" />
+                            <path
+                                d="M8.06427 5.06427C8.20216 5.02247 8.34846 5 8.5 5H15.5C16.3284 5 17 5.67157 17 6.5V17.5C17 17.6515 16.9775 17.7978 16.9357 17.9357C17.5517 17.7491 18 17.1769 18 16.5V5.5C18 4.67157 17.3284 4 16.5 4H9.5C8.82312 4 8.25095 4.44835 8.06427 5.06427Z"
+                                fill="currentColor" />
+                        </svg>
+                        <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
 
             </section>
 
-            <!-- HTML -->
+            <!-- Import -->
 
             <section>
 
                 <h3>
-                    HTML
+                    Import
                 </h3>
 
-<pre><code>&lt;h1 id="heroText"&gt;
-    SCATTER ENGINE
-&lt;/h1&gt;</code></pre>
-
-                <button class="copy-btn">
-                    ⧉
-                </button>
+                <div class="code-block">
+                    <pre><code>import { Scatter } from "scatter-engine";</code></pre>
+                    <button class="copy-btn" data-copy='import { Scatter } from "scatter-engine";'
+                        aria-label="Copy import statement">
+                        <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="10" height="14" rx="1.5" fill="currentColor" />
+                            <path
+                                d="M8.06427 5.06427C8.20216 5.02247 8.34846 5 8.5 5H15.5C16.3284 5 17 5.67157 17 6.5V17.5C17 17.6515 16.9775 17.7978 16.9357 17.9357C17.5517 17.7491 18 17.1769 18 16.5V5.5C18 4.67157 17.3284 4 16.5 4H9.5C8.82312 4 8.25095 4.44835 8.06427 5.06427Z"
+                                fill="currentColor" />
+                        </svg>
+                        <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
 
             </section>
 
-            <!-- JavaScript -->
+            <!-- Initialize -->
 
             <section>
 
                 <h3>
-                    JavaScript
+                    Initialize
                 </h3>
 
-<pre><code>import Scatter from "scatter-engine";
+                <div class="code-block">
+                    <pre><code>&lt;h1 data-scatter&gt;SCATTER ENGINE&lt;/h1&gt;
 
-Scatter.init({
-    target:"#heroText"
-});</code></pre>
+&lt;script type="module"&gt;
+  import { Scatter } from "scatter-engine";
 
-                <button class="copy-btn">
-                    ⧉
-                </button>
+  Scatter.init({
+    gap: 4,
+    particleRadius: 1.5,
+    mouseRadius: 60,
+    repulsionStrength: 1.5,
+    springStrength: 0.04,
+    damping: 0.53,
+    shockwave: true
+  });
+&lt;/script&gt;</code></pre>
+                    <button class="copy-btn" data-copy='<h1 data-scatter>SCATTER ENGINE</h1>
+
+<script type="module">
+  import { Scatter } from "scatter-engine";
+
+  Scatter.init({
+    gap: 4,
+    particleRadius: 1.5,
+    mouseRadius: 60,
+    repulsionStrength: 1.5,
+    springStrength: 0.04,
+    damping: 0.53,
+    shockwave: true
+  });
+</script>' aria-label="Copy initialization code">
+                        <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="6" width="10" height="14" rx="1.5" fill="currentColor" />
+                            <path
+                                d="M8.06427 5.06427C8.20216 5.02247 8.34846 5 8.5 5H15.5C16.3284 5 17 5.67157 17 6.5V17.5C17 17.6515 16.9775 17.7978 16.9357 17.9357C17.5517 17.7491 18 17.1769 18 16.5V5.5C18 4.67157 17.3284 4 16.5 4H9.5C8.82312 4 8.25095 4.44835 8.06427 5.06427Z"
+                                fill="currentColor" />
+                        </svg>
+                        <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
 
             </section>
 
@@ -232,7 +383,7 @@ Scatter.init({
 
     <!-- ===================== CUSTOMIZE DRAWER ===================== -->
 
-    <aside id="customizeDrawer" class="drawer">
+    <aside id="customizeDrawer" class="drawer" role="dialog" aria-label="Customize">
 
         <div class="drawer-header">
 
@@ -240,7 +391,7 @@ Scatter.init({
                 Customize
             </h2>
 
-            <button class="closeDrawer">
+            <button class="close-drawer" aria-label="Close drawer">
                 ✕
             </button>
 
@@ -248,83 +399,106 @@ Scatter.init({
 
         <div class="drawer-content">
 
-            <label>
-                Text
-                <input type="text" placeholder="SCATTER ENGINE">
+            <!-- Default Text -->
+
+            <label class="control-group">
+                <span class="control-label">Default Text</span>
+                <input type="text" id="ctrlDefaultText" value="SCATTER ENGINE" maxlength="14" spellcheck="false"
+                    autocomplete="off">
             </label>
 
-            <label>
-                Gap
-                <input type="range">
+            <!-- Hover Text -->
+
+            <label class="control-group">
+                <span class="control-label">Hover Text</span>
+                <input type="text" id="ctrlHoverText" placeholder="HELLO WORLD" maxlength="14" spellcheck="false"
+                    autocomplete="off">
             </label>
 
-            <label>
-                Particle Radius
-                <input type="range">
+            <hr class="control-divider">
+
+            <!-- Gap -->
+
+            <label class="control-group">
+                <span class="control-label">Gap <span class="control-value" id="valGap">4</span></span>
+                <input type="range" id="ctrlGap" min="2" max="15" step="1" value="4">
             </label>
 
-            <label>
-                Mouse Radius
-                <input type="range">
+            <!-- Particle Radius -->
+
+            <label class="control-group">
+                <span class="control-label">Particle Radius <span class="control-value"
+                        id="valParticleRadius">1.5</span></span>
+                <input type="range" id="ctrlParticleRadius" min="1" max="6" step="0.5" value="1.5">
             </label>
 
-            <label>
-                Repulsion Strength
-                <input type="range">
+            <!-- Mouse Radius -->
+
+            <label class="control-group">
+                <span class="control-label">Mouse Radius <span class="control-value"
+                        id="valMouseRadius">60</span></span>
+                <input type="range" id="ctrlMouseRadius" min="30" max="300" step="5" value="60">
             </label>
 
-            <label>
-                Spring Strength
-                <input type="range">
+            <!-- Repulsion Strength -->
+
+            <label class="control-group">
+                <span class="control-label">Repulsion Strength <span class="control-value"
+                        id="valRepulsionStrength">1.5</span></span>
+                <input type="range" id="ctrlRepulsionStrength" min="1" max="10" step="0.5" value="1.5">
             </label>
 
-            <label>
-                Damping
-                <input type="range">
+            <!-- Spring Strength -->
+
+            <label class="control-group">
+                <span class="control-label">Spring Strength <span class="control-value"
+                        id="valSpringStrength">0.04</span></span>
+                <input type="range" id="ctrlSpringStrength" min="0.01" max="0.20" step="0.01" value="0.04">
             </label>
 
-            <label>
-                Animation Style
+            <!-- Damping -->
 
-                <select>
+            <label class="control-group">
+                <span class="control-label">Damping <span class="control-value" id="valDamping">0.53</span></span>
+                <input type="range" id="ctrlDamping" min="0.50" max="0.95" step="0.01" value="0.53">
+            </label>
 
-                    <option>
-                        Soft
-                    </option>
+            <hr class="control-divider">
 
-                    <option>
-                        Liquid
-                    </option>
+            <!-- Animation Style -->
 
-                    <option>
-                        Elastic
-                    </option>
-
+            <label class="control-group">
+                <span class="control-label">Animation Style</span>
+                <select id="ctrlAnimationStyle">
+                    <option value="soft" selected>Soft</option>
+                    <option value="liquid">Liquid</option>
+                    <option value="elastic">Elastic</option>
                 </select>
-
             </label>
 
-            <label>
+            <hr class="control-divider">
 
-                <input type="checkbox">
+            <!-- Trails Toggle -->
 
-                Trails
-
+            <label class="control-toggle">
+                <span class="control-label">Trails</span>
+                <input type="checkbox" id="ctrlTrails">
+                <span class="toggle-switch"></span>
             </label>
 
-            <label>
+            <!-- Shockwave Toggle -->
 
-                <input type="checkbox">
-
-                Shockwave
-
+            <label class="control-toggle">
+                <span class="control-label">Shockwave</span>
+                <input type="checkbox" id="ctrlShockwave" checked>
+                <span class="toggle-switch"></span>
             </label>
 
         </div>
 
     </aside>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 
 </body>
 
