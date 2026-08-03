@@ -4,7 +4,7 @@
 
 Scatter Engine transforms ordinary text into thousands of interactive particles that respond to user input in real time. Built with performance, simplicity, and developer experience in mind, it allows you to create beautiful particle-based typography with only a few lines of code.
 
-The official website is designed around one philosophy:
+The official website is designed around one philosophy: https://aayyuusshh11.github.io/ScatterEngine/
 
 > **The engine is the product. The website is simply the stage.**
 
