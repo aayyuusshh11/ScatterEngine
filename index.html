@@ -1,192 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scatter Engine</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Scatter Engine</title>
+    <meta name="description" content="Scatter Engine - Interactive particle text for the web.">
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
     <!-- ===================== NAVBAR ===================== -->
 
-    <header class="navbar">
+    <header>
+        <nav class="navbar">
 
-        <div class="logo">
+            <a href="#" class="logo">
+                SCATTER ENGINE
+            </a>
 
-            SCATTER ENGINE
+            <div class="nav-links">
+
+                <a href="#installation">
+                    Installation
+                </a>
+
+                <button id="customizeBtn">
+                    Customize
+                </button>
+
+                <button id="viewCodeBtn">
+                    View Code
+                </button>
+
+                <a href="#" target="_blank">
+                    GitHub
+                </a>
+
+            </div>
+
+        </nav>
+    </header>
+
+<!-- ===================== HERO ===================== -->
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <!-- Scatter Engine Container -->
+
+            <div class="hero-text-container">
+
+                <h1 id="heroText">
+                    SCATTER ENGINE
+                </h1>
+
+            </div>
+
+            <!-- Install Command -->
+
+            <div class="terminal">
+
+                <span class="terminal-command">
+                    $ npm install scatter-engine
+                </span>
+
+                <button class="copy-btn" aria-label="Copy install command">
+                    ⧉
+                </button>
+
+            </div>
 
         </div>
 
-        <nav class="nav-links">
+    </section>
 
-            <a href="#installation">INSTALLATION</a>
+    <!-- ===================== INSTALLATION ===================== -->
+     <section id="installation" class="installation">
 
-            <a href="#">GITHUB</a>
+            <h2>
+                Installation
+            </h2>
 
-            <button id="customizeBtn">
+            <div class="installation-container">
 
-                CUSTOMIZE
+                <div class="install-step">
 
-            </button>
+                    <h3>
+                        01. Install
+                    </h3>
 
-        </nav>
+                    <pre><code>npm install scatter-engine</code></pre>
 
-    </header>
+                </div>
 
+                <div class="install-step">
 
+                    <h3>
+                        02. Import
+                    </h3>
 
-    <main>
+                    <pre><code>import Scatter from "scatter-engine";</code></pre>
 
+                </div>
 
+                <div class="install-step">
 
-        <!-- ================================================= -->
-        <!-- HERO TIMELINE                                     -->
-        <!-- ================================================= -->
+                    <h3>
+                        03. Initialize
+                    </h3>
 
-        <section class="hero-wrapper">
-
-
-
-            <!-- Sticky Hero -->
-
-            <div class="hero-sticky">
-
-                <div id="heroScatter">
-
-                    <h1 id="heroText" data-scatter>
-
-                        SCATTER
-                        <br>
-                        ENGINE
-
-                    </h1>
+    <pre><code>Scatter.init({
+        target: "#heroText"
+    });</code></pre>
 
                 </div>
 
             </div>
 
-
-
-            <!-- Code starts INSIDE the timeline -->
-
-            <div class="code-entry">
-
-                <section class="code-section">
-
-                    <div class="code-window">
-
-                        <div class="code-header">
-
-                            <span class="file-name">
-
-                                scatter.js
-
-                            </span>
-
-                            <button class="copy-btn">
-
-                                Copy
-
-                            </button>
-
-                        </div>
-
-<pre><code>import { Scatter } from "./scatter-engine.js";
-
-Scatter.init({
-
-    gap: 4,
-
-    particleRadius: 2,
-
-    mouseRadius: 180,
-
-    repulsionStrength: 5,
-
-    springStrength: 0.04,
-
-    damping: 0.91,
-
-    trails: true,
-
-    shockwave: true
-
-});</code></pre>
-
-                    </div>
-
-                </section>
-
-            </div>
-
-
-
         </section>
-
-
-
-        <!-- ================================================= -->
-        <!-- INSTALLATION                                      -->
-        <!-- ================================================= -->
-
-        <section id="installation">
-
-            <h2>
-
-                Installation
-
-            </h2>
-
-        </section>
-
-
-
-        <!-- ================================================= -->
-        <!-- FOOTER                                            -->
-        <!-- ================================================= -->
-
-        <footer>
-
-            <p>
-
-                Scatter Engine
-
-            </p>
-
-        </footer>
-
-
 
     </main>
 
+    <!-- ===================== FOOTER ===================== -->
 
+    <footer>
 
-    <!-- ================================================= -->
-    <!-- CUSTOMIZE DRAWER                                  -->
-    <!-- ================================================= -->
+        <a href="#">
+            Documentation
+        </a>
 
-    <aside id="customizeDrawer">
+        <a href="#">
+            Examples
+        </a>
+
+        <a href="#">
+            GitHub
+        </a>
+
+        <a href="#">
+            License
+        </a>
+
+        <span>
+            Made by Aayush
+        </span>
+
+    </footer>
+
+    <!-- ===================== VIEW CODE DRAWER ===================== -->
+
+    <aside id="viewCodeDrawer" class="drawer">
+
+        <div class="drawer-header">
+
+            <h2>
+                View Code
+            </h2>
+
+            <button class="closeDrawer">
+                ✕
+            </button>
+
+        </div>
+
+        <div class="drawer-content">
+
+            <!-- Installation -->
+
+            <section>
+
+                <h3>
+                    Installation
+                </h3>
+
+                <pre><code>npm install scatter-engine</code></pre>
+
+                <button class="copy-btn">
+                    ⧉
+                </button>
+
+            </section>
+
+            <!-- HTML -->
+
+            <section>
+
+                <h3>
+                    HTML
+                </h3>
+
+<pre><code>&lt;h1 id="heroText"&gt;
+    SCATTER ENGINE
+&lt;/h1&gt;</code></pre>
+
+                <button class="copy-btn">
+                    ⧉
+                </button>
+
+            </section>
+
+            <!-- JavaScript -->
+
+            <section>
+
+                <h3>
+                    JavaScript
+                </h3>
+
+<pre><code>import Scatter from "scatter-engine";
+
+Scatter.init({
+    target:"#heroText"
+});</code></pre>
+
+                <button class="copy-btn">
+                    ⧉
+                </button>
+
+            </section>
+
+        </div>
 
     </aside>
 
+    <!-- ===================== CUSTOMIZE DRAWER ===================== -->
 
+    <aside id="customizeDrawer" class="drawer">
+
+        <div class="drawer-header">
+
+            <h2>
+                Customize
+            </h2>
+
+            <button class="closeDrawer">
+                ✕
+            </button>
+
+        </div>
+
+        <div class="drawer-content">
+
+            <label>
+                Text
+                <input type="text" placeholder="SCATTER ENGINE">
+            </label>
+
+            <label>
+                Gap
+                <input type="range">
+            </label>
+
+            <label>
+                Particle Radius
+                <input type="range">
+            </label>
+
+            <label>
+                Mouse Radius
+                <input type="range">
+            </label>
+
+            <label>
+                Repulsion Strength
+                <input type="range">
+            </label>
+
+            <label>
+                Spring Strength
+                <input type="range">
+            </label>
+
+            <label>
+                Damping
+                <input type="range">
+            </label>
+
+            <label>
+                Animation Style
+
+                <select>
+
+                    <option>
+                        Soft
+                    </option>
+
+                    <option>
+                        Liquid
+                    </option>
+
+                    <option>
+                        Elastic
+                    </option>
+
+                </select>
+
+            </label>
+
+            <label>
+
+                <input type="checkbox">
+
+                Trails
+
+            </label>
+
+            <label>
+
+                <input type="checkbox">
+
+                Shockwave
+
+            </label>
+
+        </div>
+
+    </aside>
 
     <script src="script.js"></script>
 
